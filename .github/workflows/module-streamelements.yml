@@ -1,0 +1,47 @@
+name: Module StreamElements
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+    - "v*"
+
+
+jobs:
+  module-streamelements:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v1
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Install
+        run: |
+          cd module-streamelements
+          yarn cache clean
+          yarn install --network-timeout 1000000
+
+      - name: Build
+        run: |
+          cd module-streamelements
+          yarn build
+
+      - name: Compress
+        run: |
+          cd module-streamelements/dist
+          npx bestzip ../module-streamelements.zip ./*
+
+      - name: Upload
+        uses: bayssmekanique/action-simple-file-upload@v1
+        with:
+          user: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          host: ${{ secrets.FTP_HOST }}
+          port: ${{ secrets.FTP_PORT }}
+          src: ./module-streamelements/module-streamelements.zip
+          dest: ./builds/${{ github.sha }}/modules/module-streamelements.zip
