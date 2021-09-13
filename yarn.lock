@@ -734,7 +734,7 @@ esutils@^2.0.2:
 
 "evntcom-js@https://github.com/EvntBoard/evntcom-js.git":
   version "1.0.0"
-  resolved "https://github.com/EvntBoard/evntcom-js.git#6060e6dd1c9c5ecf4a39e7275866969e82d9b690"
+  resolved "https://github.com/EvntBoard/evntcom-js.git#4d37b322b1df55b9a956291b6ee803462bcac444"
   dependencies:
     "@msgpack/msgpack" "^2.7.1"
     uuid "^8.3.2"
@@ -766,9 +766,9 @@ fast-levenshtein@~2.0.6:
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
 
 fastq@^1.6.0:
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/fastq/-/fastq-1.12.0.tgz#ed7b6ab5d62393fb2cc591c853652a5c318bf794"
-  integrity sha512-VNX0QkHK3RsXVKr9KrlUv/FoTa0NdbYoHHl7uXHv2rzyHSlxjdNAKug2twd9luJxpcyNeAgf5iPPMutJO67Dfg==
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/fastq/-/fastq-1.13.0.tgz#616760f88a7526bdfc596b7cab8c18938c36b98c"
+  integrity sha512-YpkpUnK8od0o1hmeSc7UUs/eB/vIPWJYjKck2QKIzAf71Vm1AAQ3EbuZB3g2JIy+pg+ERD0vqI79KyZiB2e2Nw==
   dependencies:
     reusify "^1.0.4"
 
@@ -1607,10 +1607,10 @@ pify@^3.0.0:
   resolved "https://registry.yarnpkg.com/pify/-/pify-3.0.0.tgz#e5a4acd2c101fdf3d9a4d07f0dbc4db49dd28176"
   integrity sha1-5aSs0sEB/fPZpNB/DbxNtJ3SgXY=
 
-pkg-fetch@3.2.2:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/pkg-fetch/-/pkg-fetch-3.2.2.tgz#33f391eb176c1844e93189a32f2279b36a1ec949"
-  integrity sha512-bLhFNT4cNnONxzbHo1H2mCCKuQkCR4dgQtv0gUZnWtp8TDP0v0UAXKHG7DXhAoTC5IYP3slLsFJtIda9ksny8g==
+pkg-fetch@3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/pkg-fetch/-/pkg-fetch-3.2.3.tgz#9825febf4eadd470c126d3f6bdc2cb6996861d36"
+  integrity sha512-bv9vYANgAZ2Lvxn5Dsq7E0rLqzcqYkV4gnwe2f7oHV9N4SVMfDOIjjFCRuuTltop5EmsOcu7XkQpB5A/pIgC1g==
   dependencies:
     chalk "^4.1.0"
     fs-extra "^9.1.0"
@@ -1621,9 +1621,9 @@ pkg-fetch@3.2.2:
     yargs "^16.2.0"
 
 pkg@^5.3.1:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/pkg/-/pkg-5.3.1.tgz#8f81671613b9e5bb1d83c39b2eed4799e1e679fe"
-  integrity sha512-jT/sptM1ZG++FNk+jnJYNoWLDQXYd7hqpnBhd5j18SNW1jJzNYo55RahuCiD0KN0PX9mb53GWCqKM0ia/mJytA==
+  version "5.3.2"
+  resolved "https://registry.yarnpkg.com/pkg/-/pkg-5.3.2.tgz#f86520a83579f38f54684f4f873433b09af65dcb"
+  integrity sha512-78X8Tt71TI11XjkZm/r9shTdFRooFiiRcT8nfYeeOou5VKCkCysQauwAAkJKb5yjfrUhk3CBNL4zv22/iLpdnw==
   dependencies:
     "@babel/parser" "7.13.13"
     "@babel/types" "7.13.12"
@@ -1634,7 +1634,7 @@ pkg@^5.3.1:
     into-stream "^6.0.0"
     minimist "^1.2.5"
     multistream "^4.1.0"
-    pkg-fetch "3.2.2"
+    pkg-fetch "3.2.3"
     prebuild-install "6.0.1"
     progress "^2.0.3"
     resolve "^1.20.0"
@@ -2231,9 +2231,9 @@ typedarray-to-buffer@^3.1.5:
     is-typedarray "^1.0.0"
 
 typescript@^4.4.2:
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.4.2.tgz#6d618640d430e3569a1dfb44f7d7e600ced3ee86"
-  integrity sha512-gzP+t5W4hdy4c+68bfcv0t400HVJMMd2+H9B7gae1nQlBzCqvrXX+6GL/b3GAgyTH966pzrZ70/fRjwAtZksSQ==
+  version "4.4.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.4.3.tgz#bdc5407caa2b109efd4f82fe130656f977a29324"
+  integrity sha512-4xfscpisVgqqDfPaJo5vkd+Qd/ItkoagnHpufr+i2QCHBsNYp+G7UAoyFl8aPtx879u38wPV65rZ8qbGZijalA==
 
 unbox-primitive@^1.0.1:
   version "1.0.1"
