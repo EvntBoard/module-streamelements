@@ -7,7 +7,7 @@ on:
       - "v*.*.*"
 
 jobs:
-  module-streamelements:
+  release:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,51 +17,24 @@ jobs:
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
         with:
-          node-version: 12
-
-      - name: Install wine
-        run: sudo apt install wine wine64
+          node-version: 16
 
       - name: Build
         run: |
           yarn
-          yarn build:x64
+          yarn build
 
-      - name: Artefact Macos x64
+      - name: Artefact
         uses: actions/upload-artifact@v2
         with:
-          name: StreamElements MacOS x64
-          path: ./build/macos-x64
+          name: Module Stream Elements
+          path: ./dist/
 
-      - name: Artefact Linux x64
-        uses: actions/upload-artifact@v2
-        with:
-          name: StreamElements Linux x64
-          path: ./build/linux-x64
-
-      - name: Artefact Win x64
-        uses: actions/upload-artifact@v2
-        with:
-          name: StreamElements Windows x64
-          path: ./build/win-x64
-
-      - name: Pack Linux x64
+      - name: Pack
         if: startsWith(github.ref, 'refs/tags/')
         run: |
-          cd build/linux-x64
-          npx bestzip ../../streamelements-linux-x64.zip .
-
-      - name: Pack Win x64
-        if: startsWith(github.ref, 'refs/tags/')
-        run: |
-          cd build/win-x64
-          npx bestzip ../../streamelements-win-x64.zip .
-
-      - name: Pack Linux x64
-        if: startsWith(github.ref, 'refs/tags/')
-        run: |
-          cd build/macos-x64
-          npx bestzip ../../streamelements-macos-x64.zip .
+          cd ./dist/
+          npx bestzip ../module-streamelements.zip .
 
       - name: Release
         uses: softprops/action-gh-release@v1

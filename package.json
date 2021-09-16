@@ -6,42 +6,29 @@
   "bin": "dist/index.js",
   "scripts": {
     "start": "nodemon --watch \"src/**/*.ts\" --exec \"ts-node\" src/index.ts",
-    "prestart:prod": "tsc -p .",
-    "start:prod": "node dist/index.js",
-    "prebuild:x64": "tsc -p .",
-    "prebuild:arm64": "tsc -p .",
-    "build:x64": "npm-run-all build:x64:*",
-    "build:arm64": "npm-run-all build:x64:*",
-    "build:x64:linux": "cross-env PKG_CACHE_PATH=./pkg-cache pkg . --output ./build/linux-x64/streamelements/streamelements --targets node12-linux-x64",
-    "build:x64:macos": "cross-env PKG_CACHE_PATH=./pkg-cache pkg . --output ./build/macos-x64/streamelements/streamelements --targets node12-macos-x64",
-    "build:x64:win": "cross-env PKG_CACHE_PATH=./pkg-cache pkg . --output ./build/win-x64/streamelements/streamelements --targets node12-win-x64",
-    "build:arm64:linux": "cross-env PKG_CACHE_PATH=./pkg-cache pkg . --output ./build/linux-arm64/streamelements/streamelements --targets node12-linux-arm64",
-    "build:arm64:macos": "cross-env PKG_CACHE_PATH=./pkg-cache pkg . --output ./build/macos-arm64/streamelements/streamelements --targets node12-macos-arm64",
-    "build:arm64:win": "cross-env PKG_CACHE_PATH=./pkg-cache pkg . --output ./build/win-arm64/streamelements/streamelements --targets node12-win-arm64",
-    "lint": "prettier --write .",
+    "build": "ncc build src/index.ts -e utf-8-validate -e bufferutil -m -o dist/twitch",
+    "lint": "prettier --write src/**/*.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EvntBoard/plugin-streamelements.git"
+    "url": "git+https://github.com/EvntBoard/module-streamelements.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/EvntBoard/plugin-streamelements/issues"
+    "url": "https://github.com/EvntBoard/module-streamelements/issues"
   },
-  "homepage": "https://github.com/EvntBoard/plugin-streamelements#readme",
+  "homepage": "https://github.com/EvntBoard/module-streamelements#readme",
   "dependencies": {
     "dotenv": "^10.0.0",
     "evntcom-js": "https://github.com/EvntBoard/evntcom-js.git",
-    "socket.io-client": "^2.4.0"
+    "socket.io-client": "2.2.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.25",
-    "cross-env": "^7.0.3",
+    "@vercel/ncc": "^0.31.1",
     "nodemon": "^2.0.12",
-    "npm-run-all": "^4.1.5",
-    "pkg": "^5.3.1",
     "prettier": "^2.4.0",
     "ts-loader": "^9.2.5",
     "ts-node": "^10.2.1",
