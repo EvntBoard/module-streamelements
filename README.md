@@ -2,6 +2,8 @@
 
 ⚠️ Not functional for the moment ⚠
 
+Doc : https://dev.streamelements.com/docs/kappa/docs/Websockets.md
+
 ## Config
 
 ```json5
