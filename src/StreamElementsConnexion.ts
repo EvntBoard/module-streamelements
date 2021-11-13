@@ -27,7 +27,9 @@ export class StreamElementsConnexion {
       events: [EStreamElementsEvent.OPEN, EStreamElementsEvent.CLOSE],
     });
 
-    this.evntCom.onEvent = (data: any): void => {
+    this.evntCom.on('open', this.load);
+
+    this.evntCom.on('event', (data: any): void => {
       if (data?.emitter !== config.name) return;
       switch (data?.event) {
         case EStreamElementsEvent.OPEN:
@@ -39,9 +41,9 @@ export class StreamElementsConnexion {
         default:
           break;
       }
-    };
+    });
 
-    this.evntCom.onOpen = this.load.bind(this);
+    this.evntCom.connect();
   }
 
   load = async () => {
