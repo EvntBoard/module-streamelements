@@ -1,4 +1,4 @@
-import { EvntComNode } from "evntcom-js/dist/node";
+import { EvntCom } from "evntcom-js";
 // @ts-ignore
 import { default as io } from "socket.io-client";
 import { IConfigItem } from "./ConfigLoader";
@@ -8,7 +8,7 @@ import {
 } from "./EStreamElementsEvent";
 
 export class StreamElementsConnexion {
-  private evntCom: EvntComNode;
+  private evntCom: EvntCom;
   private config: IConfigItem;
 
   private socket: any;
@@ -20,16 +20,16 @@ export class StreamElementsConnexion {
     config: IConfigItem
   ) {
     this.config = config;
-    this.evntCom = new EvntComNode({
+    this.evntCom = new EvntCom({
       name: config.name,
       port: evntBoardPort,
       host: evntBoardHost,
       events: [EStreamElementsEvent.OPEN, EStreamElementsEvent.CLOSE],
     });
 
-    this.evntCom.on('open', this.load);
+    this.evntCom.on("open", this.load);
 
-    this.evntCom.on('event', (data: any): void => {
+    this.evntCom.on("event", (data: any): void => {
       if (data?.emitter !== config.name) return;
       switch (data?.event) {
         case EStreamElementsEvent.OPEN:
@@ -74,77 +74,65 @@ export class StreamElementsConnexion {
 
     // Socket connected
     this.socket.on("connect", () => {
-      console.log('connect')
+      console.log("connect");
       this.socket.emit("authenticate", {
         method: "jwt",
         token: this.config.token,
       });
     });
     this.socket.on("connection", () => {
-      console.log('connection')
+      console.log("connection");
     });
 
     this.socket.on("connect_error", (e: any) => {
-    console.log('connect_error', e)
+      console.log("connect_error", e);
     });
 
     this.socket.on("connect_timeout", () => {
-      console.log('connect_timeout')
-
+      console.log("connect_timeout");
     });
 
     this.socket.on("error", () => {
-      console.log('error')
-
+      console.log("error");
     });
 
     this.socket.on("disconnect", () => {
-      console.log('disconnect')
-
+      console.log("disconnect");
     });
 
     this.socket.on("disconnecting", () => {
-      console.log('disconnecting')
-
+      console.log("disconnecting");
     });
 
     this.socket.on("newListener", () => {
-      console.log('newListener')
-
+      console.log("newListener");
     });
 
     this.socket.on("reconnect_attempt", () => {
-      console.log('reconnect_attempt')
-
+      console.log("reconnect_attempt");
     });
 
     this.socket.on("reconnecting", () => {
-      console.log('reconnecting')
-
+      console.log("reconnecting");
     });
 
     this.socket.on("reconnect_error", () => {
-      console.log('reconnect_error')
-
+      console.log("reconnect_error");
     });
 
     this.socket.on("reconnect_failed", () => {
-      console.log('reconnect_failed')
-
+      console.log("reconnect_failed");
     });
     this.socket.on("removeListener", () => {
-      console.log('removeListener')
-
+      console.log("removeListener");
     });
     this.socket.on("ping", () => {
-      console.log('ping')
-
+      console.log("ping");
     });
     this.socket.on("pong", () => {
-      console.log('pong')
-
+      console.log("pong");
     });
-    this.socket.on('unauthorized', console.error);
+    this.socket.on("unauthorized", console.error);
 
     // Socket got disconnected
     this.socket.on("disconnect", (data: any) => {
