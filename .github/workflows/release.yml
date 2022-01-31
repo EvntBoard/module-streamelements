@@ -29,7 +29,7 @@ jobs:
         run: |
           cp ./metadata.json ./dist/metadata.json
 
-      - name: Copy defaultConfig.json
+      - name: Copy config.json
         run: |
           cp ./config.json ./dist/config.json
 
@@ -46,22 +46,6 @@ jobs:
           find: "__MODULE_VERSION__"
           replace: ${{ steps.get_version.outputs.version }}
           regex: false
-
-      - name: Copy triggers
-        run: |
-          if [[ -d "./triggers" ]]
-          then
-            mkdir ./dist/triggers
-            cp -a ./triggers/. ./dist/triggers
-          fi
-
-      - name: Copy shared
-        run: |
-          if [[ -d "./shared" ]]
-          then
-            mkdir ./dist/shared
-            cp -a ./shared/. ./dist/shared
-          fi
 
       - name: Build module
         run: |

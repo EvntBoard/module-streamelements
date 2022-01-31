@@ -1,4 +1,4 @@
-import { EvntCom } from "evntcom-js";
+import { EvntCom } from "@evntboard/evntcom-node";
 // @ts-ignore
 import { default as io } from "socket.io-client";
 import { IConfigItem } from "./ConfigLoader";
